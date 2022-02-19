@@ -8,6 +8,6 @@ def test_getting_post():
     r = requests.get(url=SERVICE_URL)
     response = Response(r)
     response.assert_status_code(200)        # Валидируем статус код
-    response.validate_json(Post)     # Json пришедший по API валидируем с помощью jsonschema
+    response.validate_json(Post)            # Json пришедший по API валидируем с помощью pydentic
     response.assert_len_json(3)
 
