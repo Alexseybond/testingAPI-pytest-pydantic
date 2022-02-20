@@ -5,9 +5,9 @@ class Response:
 
     def __init__(self, response):
         self.response = response
-        # self.response_json = response.json()                   # Для тестов где в json нет разделения на data и meta
+        # self.response_json = response.json()                   # Для тестов где в json нет разделения на data и meta. Правильно бы настроить через гетеры и сетеры с проверками
         self.response_json = response.json().get('data')
-        # self.response_json_meta = response.json().get('meta')  # Если надо покрыть тестами мета инфо
+        self.response_json_meta = response.json().get('meta')  # Если надо покрыть тестами мета инфо
         self.response_status_code = response.status_code
 
     def validate_json(self, schema):
